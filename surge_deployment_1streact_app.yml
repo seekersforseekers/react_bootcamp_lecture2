@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Install NodeJS
+      - name: Install NODE
         uses: actions/setup-node@v2-beta
         with:
           node-version: 12
@@ -26,6 +26,6 @@ jobs:
       - name: Install Surge
         run : npm install --global surge
       - name : Deploy to Surge
-        run : surge ./build project002secondclassofbootcamp.surge.sh --token ${{secrets.SURGE_TOKEN}}
+        run : surge ./build http://project002secondclassofbootcamp.surge.sh/ --token ${{secrets.SURGE_TOKEN}}
 
 
