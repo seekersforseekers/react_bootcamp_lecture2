@@ -4,8 +4,10 @@
 name: React App Deploy to Surge
 
 on:
-  release:
-    types: [created]
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
 
 jobs:
   build:
@@ -24,6 +26,6 @@ jobs:
       - name: Install Surge
         run : npm install --global surge
       - name : Deploy to Surge
-        run : surge ./ react_bootcamp_lecture2 ./build project002secondclassofbootcamp.surge.sh --token ${{secrets.SURGE_TOKEN}}
+        run : surge ./build project002secondclassofbootcamp.surge.sh --token ${{secrets.SURGE_TOKEN}}
 
 
